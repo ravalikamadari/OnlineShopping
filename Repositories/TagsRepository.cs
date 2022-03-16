@@ -10,7 +10,6 @@ public interface ITagsRepository
     Task<List<Tags>> GetList();
      Task<Tags> GetById(long Id);
      Task<Tags> Create(Tags Data);
-     Task<Tags> Update(Tags Data);
     Task<List<Tags>> GetTagsForProduct(long ProductId);
 }
 
@@ -55,8 +54,5 @@ public class TagsRepository : BaseRepository, ITagsRepository
             return (await con.QueryAsync<Tags>(query, new {ProductId})).AsList();
     }
 
-    public Task<Tags> Update(Tags Data)
-    {
-        throw new NotImplementedException();
-    }
+   
 }
